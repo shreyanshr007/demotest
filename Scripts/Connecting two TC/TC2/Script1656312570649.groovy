@@ -19,14 +19,26 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser('')
 
-WebUI.navigateToUrl('https://app.marvin.lsq-staging.com/')
+WebUI.callTestCase(findTestCase('Connecting two TC/TC1'), [:], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.setText(findTestObject('Object Repository/Page_Marvin/input_Email Address_LSQEmail'), 'shreyansh.ragh@mailinator.com')
+WebUI.maximizeWindow()
 
-WebUI.click(findTestObject('Object Repository/Page_Marvin/button_Continue'))
+WebUI.verifyElementVisible(findTestObject('TC_2/Page_Welcome/a_Workflow'))
 
-WebUI.verifyElementPresent(findTestObject('Object Repository/Page_Marvin/p_This Email Address does not exist in the system'), 
-    0)
+WebUI.click(findTestObject('Object Repository/TC_2/Page_Welcome/a_Workflow'))
 
-WebUI.closeBrowser()
+WebUI.verifyElementVisible(findTestObject('Object Repository/TC_2/Page_Welcome/a_Workflow'))
+
+WebUI.click(findTestObject('Object Repository/TC_2/Page_Welcome/a_Manage Forms'))
+
+WebUI.click(findTestObject('Object Repository/TC_2/Page_Manage Forms/button_DND Poonawalla SGP_btnRowAction-0f2d_d44eaf'))
+
+WebUI.verifyElementVisible(findTestObject('Object Repository/TC_2/Page_Manage Forms/button_DND Poonawalla SGP_btnRowAction-0f2d_d44eaf'))
+
+WebUI.click(findTestObject('Object Repository/TC_2/Page_Manage Forms/button_DND Poonawalla SGP_btnRowAction-0f2d_d44eaf'), 
+    FailureHandling.CONTINUE_ON_FAILURE)
+
+WebUI.acceptAlert()
+
+WebUI.click(findTestObject('Object Repository/TC_2/Page_Manage Forms/a_Test'))
 

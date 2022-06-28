@@ -19,23 +19,15 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser('')
 
-WebUI.navigateToUrl(GlobalVariable.URL)
+WebUI.navigateToUrl('https://login.lsq-staging.com/')
 
-WebUI.setText(findTestObject('Object Repository/Page_Marvin/input_Email Address_LSQEmail'), GlobalVariable.user)
+WebUI.setText(findTestObject('Object Repository/Page_LeadSquared Application/input_Please enter your login details_EmailID'), 
+    'ashpoonawallasgp@mailinator.com')
 
-WebUI.click(findTestObject('Object Repository/Page_Marvin/button_Continue'))
+WebUI.click(findTestObject('Object Repository/Page_LeadSquared Application/button_Next'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Marvin/input_Password_password'), GlobalVariable.pass)
+WebUI.setEncryptedText(findTestObject('Object Repository/Page_LeadSquared Application/input_Please enter your password_Password'), 
+    'hpTj/Kl7/jOfeaRdjLViDw==')
 
-WebUI.click(findTestObject('Object Repository/Page_Marvin/button_Continue'))
-
-WebUI.verifyElementPresent(findTestObject('Object Repository/Page_Marvin/button_Check-In'), 0)
-
-WebUI.click(findTestObject('Object Repository/Page_Marvin/svg_of 10070 pages_MuiSvgIcon-root'))
-
-WebUI.click(findTestObject('Object Repository/Page_Marvin/div_S'))
-
-WebUI.click(findTestObject('Object Repository/Page_Marvin/span_Sign Out'))
-
-WebUI.closeBrowser()
+WebUI.click(findTestObject('Object Repository/Page_LeadSquared Application/button_Next_1'))
 
